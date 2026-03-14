@@ -19,7 +19,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/saloni-kumari-12850b203/"
 };
 
-export const summary = "Result-driven professional with 3+ years of experience in rural development and project management. Proven success in implementing initiatives that increased financial inclusion and achieved 90% awareness of social security schemes. Expertise in supporting rural women, promoting skill development, advancing gender equality, and strong in stakeholder engagement, process improvement, and strategic planning.";
+export const summary = "Result-driven professional with 5+ years of experience in rural development and project management. Proven success in implementing initiatives that increased financial inclusion and achieved 90% awareness of social security schemes. Expertise in supporting rural women, promoting skill development, advancing gender equality, and strong in stakeholder engagement, process improvement, and strategic planning.";
 
 export const experience = [
   {

@@ -81,15 +81,6 @@ const ExperienceItem = ({ exp }) => {
                     </motion.li>
                   ))}
                 </ul>
-                
-                {/* Media Placeholder for applicable roles */}
-                {exp.mediaRole && (
-                  <div className="mt-6 p-4 rounded-xl bg-[var(--color-secondary)]/30 border border-white/50 flex flex-col items-center justify-center gap-2 text-[var(--color-text-muted)]">
-                    <Camera size={24} className="opacity-50" />
-                    <p className="text-sm font-medium">Gallery space for: {exp.mediaRole}</p>
-                    <p className="text-xs opacity-70">(Add your field photos here!)</p>
-                  </div>
-                )}
               </div>
             </motion.div>
           )}
