@@ -5,6 +5,12 @@
   --color-primary-light: #CBBEEA;   /* Lighter Lavender */
   --color-primary-dark: #8F76BE;    /* Deeper Lavender for text/contrast */
   --color-secondary: #F3E8FF;       /* Very Soft Purple */
+  
+  /* NEW: Warm Complimentary Colors */
+  --color-accent-light: #FFE4B5;    /* Moccasin / Soft Peach */
+  --color-accent: #FFB347;          /* Soft Gold / Pastel Orange */
+  --color-accent-dark: #E08E36;     /* Deeper Gold for text/contrast */
+
   --color-bg-base: #FDFBFE;         /* Almost white with purple tint */
   --color-text-main: #4A3E5C;       /* Deep purple-grey for readability */
   --color-text-muted: #8A7B9D;      /* Lighter purple-grey */
@@ -12,10 +18,16 @@
   --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
   
   --animate-float: float 6s ease-in-out infinite;
+  --animate-slow-spin: slow-spin 30s linear infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
 

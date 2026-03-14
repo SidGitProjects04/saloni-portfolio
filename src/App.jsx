@@ -106,10 +106,22 @@ function App() {
       
       <div className="min-h-screen bg-[var(--color-bg-base)] text-[var(--color-text-main)] w-full relative overflow-x-hidden selection:bg-[var(--color-primary)] selection:text-white">
         
-        {/* Decorative Background Elements */}
-        <div className="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-[var(--color-secondary)] opacity-50 blur-[120px] pointer-events-none" />
-        <div className="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#EADDFF] opacity-40 blur-[150px] pointer-events-none" />
-        <div className="fixed top-[40%] right-[-5%] w-[30vw] h-[30vw] rounded-full bg-[var(--color-primary-light)] opacity-30 blur-[100px] pointer-events-none" />
+        {/* ====== Decorative Floral Background Elements ====== */}
+        {/* Top Left Flower */}
+        <svg className="fixed top-[-5%] left-[-5%] w-[40vw] h-[40vw] opacity-20 animate-slow-spin pointer-events-none text-[var(--color-accent-light)]" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 0C50 20 70 30 70 50C70 70 50 80 50 100C50 80 30 70 30 50C30 30 50 20 50 0Z" />
+          <path d="M0 50C20 50 30 30 50 30C70 30 80 50 100 50C80 50 70 70 50 70C30 70 20 50 0 50Z" />
+          <circle cx="50" cy="50" r="8" fill="var(--color-accent)" />
+        </svg>
+
+        {/* Bottom Right Giant Flower */}
+        <svg className="fixed bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] opacity-30 pointer-events-none text-[#EADDFF]" viewBox="0 0 100 100" fill="currentColor" style={{ animation: 'slow-spin 40s linear infinite reverse' }}>
+          <path d="M50 0C60 25 80 35 100 50C80 65 60 75 50 100C40 75 20 65 0 50C20 35 40 25 50 0Z" />
+          <circle cx="50" cy="50" r="12" fill="var(--color-primary-light)" />
+        </svg>
+
+        {/* Soft Accent Blur in Center-Right */}
+        <div className="fixed top-[40%] right-[-5%] w-[30vw] h-[30vw] rounded-full bg-[var(--color-accent-light)] opacity-20 blur-[120px] pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 relative z-10 space-y-24">
           
@@ -120,19 +132,20 @@ function App() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-center space-y-8"
           >
+            {/* UPDATED: Badge uses the new Accent color */}
             <motion.div 
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-[var(--color-primary-light)] text-[var(--color-primary-dark)] text-sm font-medium shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-[var(--color-accent)] text-[var(--color-accent-dark)] text-sm font-medium shadow-sm"
               style={{ animation: 'float 6s ease-in-out infinite' }}
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary)]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)]"></span>
               </span>
               Rural Development Professional
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#3A2D4D] leading-none">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-dark)] via-[#C599D6] to-[#D8B4E2]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-accent)] to-[#D8B4E2]">
                 {personalInfo.name}
               </span>
             </h1>
@@ -143,15 +156,15 @@ function App() {
 
             {/* Contact Links */}
             <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-text-main)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-white/50">
-                <Mail size={18} className="text-[var(--color-primary)]" />
+              <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-text-main)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-white/50 hover:border-[var(--color-accent)] group">
+                <Mail size={18} className="text-[var(--color-primary)] group-hover:text-[var(--color-accent-dark)] transition-colors" />
                 <span>Email Me</span>
               </a>
-              <a href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-text-main)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-white/50">
-                <Phone size={18} className="text-[var(--color-primary)]" />
+              <a href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-text-main)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-white/50 hover:border-[var(--color-accent)] group">
+                <Phone size={18} className="text-[var(--color-primary)] group-hover:text-[var(--color-accent-dark)] transition-colors" />
                 <span>Call</span>
               </a>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white shadow-[0_8px_20px_-6px_rgba(177,156,217,0.6)] hover:shadow-[0_12px_25px_-6px_rgba(177,156,217,0.8)] hover:-translate-y-0.5 transition-all">
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white shadow-[0_8px_20px_-6px_rgba(177,156,217,0.6)] hover:shadow-[0_12px_25px_-6px_rgba(255,179,71,0.6)] hover:-translate-y-0.5 transition-all hover:bg-gradient-to-r hover:from-[var(--color-accent)] hover:to-[var(--color-accent-dark)]">
                 <Linkedin size={18} />
                 <span>LinkedIn</span>
               </a>
@@ -193,8 +206,8 @@ function App() {
                     key={skill.name}
                     className="flex flex-col items-center justify-center p-6 text-center gap-3 bg-white/60 hover:bg-white backdrop-blur-sm border border-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-secondary)]/50 group-hover:bg-[var(--color-secondary)] flex items-center justify-center transition-colors">
-                      <IconComponent size={24} className="text-[var(--color-primary-dark)]" />
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-secondary)]/50 group-hover:bg-[var(--color-accent-light)] flex items-center justify-center transition-colors">
+                      <IconComponent size={24} className="text-[var(--color-primary-dark)] group-hover:text-[var(--color-accent-dark)] transition-colors" />
                     </div>
                     <span className="font-medium text-[#3A2D4D] text-sm md:text-base">{skill.name}</span>
                   </motion.div>
@@ -209,14 +222,14 @@ function App() {
             {/* Education */}
             <div className="space-y-8">
               <div className="flex items-center gap-4 px-2">
-                <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[var(--color-primary-light)] to-[#EADDFF]" />
+                <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[var(--color-primary-light)] to-[var(--color-accent-light)]" />
                 <h2 className="text-3xl font-bold text-[#3A2D4D]">Education</h2>
               </div>
               <div className="space-y-4">
                 {education.map((edu, idx) => (
-                  <GlassCard key={idx} className="p-6">
+                  <GlassCard key={idx} className="p-6 border-l-4 border-[var(--color-accent)] border-t-white border-r-white border-b-white">
                     <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white flex flex-shrink-0 items-center justify-center shadow-sm text-[var(--color-primary)]">
+                      <div className="w-12 h-12 rounded-full bg-[var(--color-accent-light)]/50 flex flex-shrink-0 items-center justify-center shadow-sm text-[var(--color-accent-dark)]">
                         <GraduationCap size={24} />
                       </div>
                       <div>
@@ -235,14 +248,14 @@ function App() {
             {/* Certifications & Diplomas */}
             <div className="space-y-8">
               <div className="flex items-center gap-4 px-2">
-                <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[#C599D6] to-[#EADDFF]" />
+                <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[#EADDFF]" />
                 <h2 className="text-3xl font-bold text-[#3A2D4D]">Certifications</h2>
               </div>
               <div className="space-y-4">
                 {certifications.map((cert, idx) => (
                   <GlassCard key={idx} className="p-6">
                     <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white flex flex-shrink-0 items-center justify-center shadow-sm text-[var(--color-primary)]">
+                      <div className="w-12 h-12 rounded-full bg-[var(--color-accent-light)]/50 flex flex-shrink-0 items-center justify-center shadow-sm text-[var(--color-accent-dark)]">
                         <Award size={24} />
                       </div>
                       <div>
@@ -263,24 +276,24 @@ function App() {
           {/* ====== ACHIEVEMENTS & EXTRA-CURRICULAR ====== */}
           <section className="space-y-8">
             <div className="flex items-center gap-4 px-2">
-              <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[#D8B4E2] to-[#EADDFF]" />
+              <div className="h-10 w-2.5 rounded-full bg-gradient-to-b from-[#D8B4E2] to-[var(--color-accent-light)]" />
               <h2 className="text-3xl md:text-4xl font-bold text-[#3A2D4D]">Achievements & Activities</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Highlight Art Achievements */}
-              <GlassCard className="p-8 md:col-span-2 bg-gradient-to-br from-white/60 to-[var(--color-secondary)]/30 overflow-hidden relative">
+              <GlassCard className="p-8 md:col-span-2 bg-gradient-to-br from-white/80 to-[var(--color-accent-light)]/30 overflow-hidden relative">
                 {/* Decorative Art icon bg */}
-                <Palette strokeWidth={1} size={200} className="absolute -right-10 -bottom-10 text-[var(--color-primary-light)]/20 rotate-12" />
+                <Palette strokeWidth={1} size={200} className="absolute -right-10 -bottom-10 text-[var(--color-accent)]/10 rotate-12" />
                 
                 <h3 className="text-2xl font-bold text-[#3A2D4D] mb-6 flex items-center gap-3 relative z-10">
-                  <Trophy className="text-[var(--color-primary)]" />
+                  <Trophy className="text-[var(--color-accent-dark)]" />
                   Arts & Performance
                 </h3>
                 
                 <div className="grid sm:grid-cols-2 gap-6 relative z-10">
                   {achievements.map((ach, idx) => (
-                    <div key={idx} className="bg-white/50 rounded-2xl p-5 border border-white shadow-sm space-y-3">
+                    <div key={idx} className="bg-white/80 rounded-2xl p-5 border border-[var(--color-accent-light)] shadow-sm space-y-3 hover:shadow-md transition-all">
                       <h4 className="font-bold text-lg text-[#3A2D4D]">{ach.title}</h4>
                       <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{ach.description}</p>
                     </div>
@@ -290,9 +303,9 @@ function App() {
 
               {/* Extra-curriculars */}
               {extracurriculars.map((activity, idx) => (
-                <GlassCard key={idx} className="p-6 flex items-start gap-4">
+                <GlassCard key={idx} className="p-6 flex items-start gap-4 hover:border-[var(--color-accent-light)] transition-colors">
                   <div className="mt-1">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent)]" />
                   </div>
                   <p className="text-[var(--color-text-main)] leading-relaxed">{activity.description}</p>
                 </GlassCard>
