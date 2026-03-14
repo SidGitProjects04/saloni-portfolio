@@ -10,6 +10,7 @@ import {
   personalInfo, summary, experience, skills, 
   education, certifications, achievements, extracurriculars 
 } from './data/resume';
+import profileImage from './assets/profile.png';
 
 // Helper component for reusable glass containers
 const GlassCard = ({ children, className = "" }) => (
@@ -121,12 +122,29 @@ function App() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-center space-y-8"
+            className="text-center space-y-8 flex flex-col items-center"
           >
+            {/* Profile Image Wrapper */}
+            <motion.div
+              style={{ animation: 'float 6s ease-in-out infinite' }}
+              className="relative mb-4 group"
+            >
+              {/* Outer decorative ring */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent-light)] rounded-full blur-md opacity-50 group-hover:opacity-80 transition-opacity duration-500 scale-105"></div>
+              {/* Profile Image */}
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-xl relative z-10 bg-white">
+                <img 
+                  src={profileImage} 
+                  alt={personalInfo.name} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+
             {/* UPDATED: Badge uses the new Accent color */}
             <motion.div 
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-[var(--color-accent)] text-[var(--color-accent-dark)] text-sm font-medium shadow-sm"
-              style={{ animation: 'float 6s ease-in-out infinite' }}
+              style={{ animation: 'float 6s ease-in-out infinite', animationDelay: '1s' }}
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
