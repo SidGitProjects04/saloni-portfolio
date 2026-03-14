@@ -72,14 +72,14 @@ export default function CursorPetals() {
       x: mousePosition.x - 12,
       y: mousePosition.y - 12,
       scale: 1,
-      rotate: 0,
+      rotate: 45, // Angled slightly by default
       transition: { type: 'tween', ease: 'backOut', duration: 0.1 }
     },
     hover: {
       x: mousePosition.x - 12,
       y: mousePosition.y - 12,
       scale: 1.5,
-      rotate: 45, // Spin slightly when hovering over a link
+      rotate: 90, // Spin further when hovering over a link
       transition: { type: 'tween', ease: 'backOut', duration: 0.2 }
     }
   };
