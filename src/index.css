@@ -1,13 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #aa3bff;
-  --font-sans: Inter, system-ui, sans-serif;
+  --color-primary: #B19CD9;         /* Pastel Lavender */
+  --color-primary-light: #CBBEEA;   /* Lighter Lavender */
+  --color-primary-dark: #8F76BE;    /* Deeper Lavender for text/contrast */
+  --color-secondary: #F3E8FF;       /* Very Soft Purple */
+  --color-bg-base: #FDFBFE;         /* Almost white with purple tint */
+  --color-text-main: #4A3E5C;       /* Deep purple-grey for readability */
+  --color-text-muted: #8A7B9D;      /* Lighter purple-grey */
+  
+  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
+  
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
   margin: 0;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  /* Crucial: We hide the default cursor so our custom one stands out. 
+     We'll still let pointer exist on hoverable elements though. */
+  cursor: none; 
+}
+
+/* Ensure links and buttons still have a pointer, 
+   or we can override those later to use our custom cursor too. */
+a, button, input, [role="button"] {
+  cursor: pointer;
 }
